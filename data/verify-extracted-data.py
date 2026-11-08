@@ -65,7 +65,7 @@ def validate_batch(path, batch_num, expected_size):
         result["failures"].append(f"failed to load file: {e}")
         return result
 
-    # --- top-level shape ---
+    # top-level shape
     if X.dtype != object:
         result["failures"].append(f"X.dtype is {X.dtype}, expected object")
     if X.ndim != 1:
@@ -80,13 +80,13 @@ def validate_batch(path, batch_num, expected_size):
     if expected_size is not None and len(y) != expected_size:
         result["failures"].append(f"batch size {len(y)} != expected {expected_size}")
 
-    # --- labels ---
+    # labels
     labels = [str(v) for v in y]
     bad_labels = sorted(set(l for l in labels if l not in TARGETS))
     if bad_labels:
         result["failures"].append(f"labels outside TARGETS: {bad_labels}")
 
-    # --- per-folder checks ---
+    # per-folder checks
     total_frames = 0
     sentinel_frames = 0
     nan_inf_folders = []

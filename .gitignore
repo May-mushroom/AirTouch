@@ -1,0 +1,8 @@
+.venv
+.DS_Store
+sandbox
+jester_labels
+.vscode
+model
+data/__pycache__
+*/*.ipynb

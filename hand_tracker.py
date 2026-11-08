@@ -21,6 +21,7 @@ class HandLandmarker():
     
     # callback function for land marker
     def __set_detection_results(self, result, output_image: mp.Image, timestamp_ms: int):
+        landmarks = result.hand_landmarks
         if (self.results.full()):
             try:
                 self.results.get_nowait()

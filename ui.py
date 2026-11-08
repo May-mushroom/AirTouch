@@ -51,7 +51,9 @@ def draw_hands(frame, detection_result, gestures=None):
         cv.rectangle(frame, (x_min, y_min), (x_max, y_max), ACCENT, 2, cv.LINE_AA)
 
         gesture = gestures[i] if gestures and i < len(gestures) else None
-        gesture_name, score = gesture if gesture else (None, None)
+        # gesture_name, score = gesture if gesture else (None, None)
+        gesture_name = gesture if gesture else None
+        score = None
         _draw_hand_label(frame, x_min, y_min, x_max, handedness[0].category_name, gesture_name, score, w)
 
     return frame
